@@ -1,0 +1,337 @@
+$nav-height: 12vh;
+
+body,
+html {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  background: #212121;
+  color: #ffffff;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.nav-primary {
+  width: 100vw;
+  height: $nav-height;
+  background: #101010;
+  color: #ff3333;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  box-sizing: border-box;
+
+  z-index: 10;
+}
+
+.nav-left {
+  height: 100%;
+  width: 30%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #logoLink {
+    text-decoration: none;
+    height: $nav-height;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:active,
+    &:hover {
+      aspect-ratio: 1 / 2;
+      text-align: center;
+      #logo {
+        opacity: 0;
+      }
+
+      #text {
+        opacity: 1;
+      }
+    }
+  }
+
+  #logo {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  #text {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    color: #ffffff;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+
+    text-decoration: none;
+    transition: all 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}
+
+.nav-right {
+  height: 100%;
+  width: 60%;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.link-primary {
+  color: #ff3333;
+  text-decoration: none;
+  font-size: 1.25em;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+
+  div {
+    background: #ff3333;
+    height: 2px;
+    width: 0;
+    position: relative;
+    top: -6.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+    transition: all 250ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+
+  &:hover {
+    div {
+      width: 100%;
+      top: 0;
+    }
+  }
+}
+
+.container {
+  position: absolute;
+  left: 0;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 85vh;
+
+  padding-top: calc(12vh + 30px);
+  padding-left: 40px;
+  padding-right: 40px;
+
+  margin-bottom: 30px;
+
+  display: grid;
+  grid-gap: 25px;
+  grid-template-rows: 60vh auto;
+
+  .card {
+    position: relative;
+    background: #171717;
+    border-radius: 7.5px;
+    min-height: 30vh;
+
+    height: auto;
+    width: 100%;
+
+    position: relative;
+
+    box-sizing: border-box;
+    padding-left: 60px;
+    padding-right: 60px;
+
+    overflow: hidden;
+
+    &:hover {
+      .title {
+        color: #ff3333;
+      }
+
+      .subtitle {
+        color: #dddddd;
+      }
+
+      .hover-in {
+        width: 25px;
+        height: 200%;
+        transform: rotate(1deg) translate(-12.5px, -10%);
+      }
+    }
+
+    .hover-in {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 100%;
+
+      width: 0;
+      transform: translate(-20px, -10%);
+      background: #ff3333;
+      transition: all 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .title {
+      font-family: "Open Sans", sans-serif;
+      font-weight: bolder;
+      font-size: 3em;
+
+      transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: start;
+
+      margin-bottom: 0;
+
+      .subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-weight: lighter;
+        font-size: 1rem;
+
+        position: relative;
+        left: 1ch;
+
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+    }
+
+    .body {
+      font-family: "Montserrat", sans-serif;
+      font-weight: normal;
+      font-size: 1.75em;
+
+      margin-bottom: 0;
+
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 599px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+#error {
+  position: absolute;
+  top: 15vh;
+
+  color: #ffffff;
+  font-size: 4em;
+  font-family: "Open Sans", sans-serif;
+
+  max-height: 85vh;
+  max-width: 100%;
+  height: 100%;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @mixin GlitchCopy {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes glitch-anim {
+    $steps: 20;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+        transform: skew((random(100) / 100) + deg);
+      }
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    $steps: 20;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+        transform: skew((random(100) / 100) + deg);
+      }
+    }
+  }
+
+  @keyframes glitch-skew {
+    $steps: 10;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        transform: skew((random(10) - 5) + deg);
+      }
+    }
+  }
+
+  .big-error {
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+
+    &::before {
+      @include GlitchCopy;
+      left: 2px;
+      text-shadow: -2px 0 #ff3333;
+      clip: rect(44px, 450px, 56px, 0);
+
+      animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    &::after {
+      @include GlitchCopy;
+      left: -2px;
+      text-shadow: -2px 0 #5d00ff, 2px 2px #ff3333;
+      animation: glitch-anim2 1s infinite linear alternate-reverse;
+    }
+  }
+
+  .Error404Text {
+    position: relative;
+    top: -25vh;
+
+    font-size: 2em;
+    color: #ff3333;
+  }
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #ffffff;
+  background: #ff3333;
+}
+
+::selection {
+  color: #ffffff;
+  background: #ff3333;
+}
