@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +12,9 @@ let HomePage = React.lazy(() => import("./components/HomePage"));
 let ErrorScreen = React.lazy(() => import("./components/errors/ErrorScreen"));
 
 function App() {
+  let [activeLink, setActiveLink] = useState(`${window.location.pathname}`);
+  let [burgerActive, setBurgerActive] = useState(false);
+
   return (
     <div className="App">
       <div className="nav-primary">
@@ -22,18 +25,54 @@ function App() {
           </a>
         </div>
         <div className="nav-right">
-          <a href="/" className="link-primary">
+          <a
+            href="/"
+            className={
+              !(activeLink === "/") ? "link-primary" : "link-primary active"
+            }
+            onClick={() => setActiveLink("/")}
+          >
             HOME
             <div />
           </a>
-          <a href="/about" className="link-primary">
+          <a
+            href="/about"
+            className={
+              !(activeLink === "/about")
+                ? "link-primary"
+                : "link-primary active"
+            }
+            onClick={() => setActiveLink("/about")}
+          >
             ABOUT
             <div />
           </a>
-          <a href="/projects" className="link-primary">
+          <a
+            href="/projects"
+            className={
+              !(activeLink === "/projects")
+                ? "link-primary"
+                : "link-primary active"
+            }
+            onClick={() => setActiveLink("/projects")}
+          >
             PROJECTS
             <div />
           </a>
+          <button className="contact-button">Contact</button>
+
+          <div
+            className="nav-burger-container"
+            onClick={() => {
+              setBurgerActive(!burgerActive);
+            }}
+          >
+            <div
+              className={
+                burgerActive ? "nav-burger burger-active" : "nav-burger"
+              }
+            ></div>
+          </div>
         </div>
       </div>
       <Router>
@@ -41,6 +80,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
 
+            {/* ! Handle 404 errors ! */}
             <Route exact path="/error/:type" component={ErrorScreen} />
             <Redirect to="/error/404/" />
           </Switch>

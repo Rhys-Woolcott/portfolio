@@ -1,53 +1,51 @@
 import { Component } from "react";
-import Button from "./component/Button";
+import GridTab from "./component/GridTab";
 
 export default class HomePage extends Component {
   render() {
     return (
-      <div className="container">
-        <article className="card">
-          <h1 className="title">
-            Title
-            <span className="subtitle">Subtitle</span>
-          </h1>
-          <p className="body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            eius explicabo, iusto odio esse excepturi labore eum eaque eveniet!
-            Itaque quibusdam rem accusamus aut nemo libero repudiandae qui in
-            similique?
-          </p>
-          <div className="hover-in"></div>
-          <Button>LEARN MORE</Button>
-        </article>
-        <article className="card">
-          <h1 className="title">
-            Title
-            <span className="subtitle">Subtitle</span>
-          </h1>
-          <p className="body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            eius explicabo, iusto odio esse excepturi labore eum eaque eveniet!
-            Itaque quibusdam rem accusamus aut nemo libero repudiandae qui in
-            similique?
-          </p>
-          <div className="hover-in"></div>
-          <Button>Learn More</Button>
-        </article>
-        <article className="card">
-          <h1 className="title">
-            Title
-            <span className="subtitle">Subtitle</span>
-          </h1>
-          <p className="body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            eius explicabo, iusto odio esse excepturi labore eum eaque eveniet!
-            Itaque quibusdam rem accusamus aut nemo libero repudiandae qui in
-            similique?
-          </p>
-          <div className="hover-in"></div>
-          <Button>Learn More</Button>
-        </article>
-      </div>
+      <>
+        <header>
+          <title>Home | GALACTIX</title>
+        </header>
+        <div className="container">
+          <GridTab
+            title="Project 1"
+            subtitle="Subtitle 1"
+            tabText="READ MORE"
+            onClick={() => {
+              alert("Hello World");
+            }}
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+            pariatur possimus minima dolores id. Quasi quibusdam reiciendis
+            accusantium in, itaque nihil sit sunt nulla magnam minima!
+            Necessitatibus magnam voluptate ea.
+          </GridTab>
+          <GridTab
+            title="Project 2"
+            subtitle="Subtitle 2"
+            tabText="READ MORE"
+            onClick={() => {}}
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+            pariatur possimus minima dolores id. Quasi quibusdam reiciendis
+            accusantium in, itaque nihil sit sunt nulla magnam minima!
+            Necessitatibus magnam voluptate ea.
+          </GridTab>
+          <GridTab
+            title="Project 3"
+            subtitle="Subtitle 3"
+            tabText="READ MORE"
+            onClick={() => {}}
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+            pariatur possimus minima dolores id. Quasi quibusdam reiciendis
+            accusantium in, itaque nihil sit sunt nulla magnam minima!
+            Necessitatibus magnam voluptate ea.
+          </GridTab>
+        </div>
+      </>
     );
   }
 }
