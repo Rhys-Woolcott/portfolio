@@ -7,6 +7,7 @@ html {
 
   margin: 0;
   padding: 0;
+  padding-bottom: 30px;
 
   background: #212121;
   color: #ffffff;
@@ -129,21 +130,24 @@ html {
 .container {
   position: absolute;
   left: 0;
+  top: 12vh;
 
   box-sizing: border-box;
 
   width: 100%;
-  min-height: 85vh;
+  height: 88vh;
 
-  padding-top: calc(12vh + 30px);
+  padding-top: calc(30px);
   padding-left: 40px;
   padding-right: 40px;
 
-  margin-bottom: 30px;
+  overflow-y: scroll;
 
   display: grid;
+  align-content: start;
   grid-gap: 25px;
-  grid-template-rows: 60vh auto;
+  grid-template-columns: auto;
+  grid-auto-rows: 60vh;
 
   .card {
     position: relative;
@@ -223,8 +227,13 @@ html {
       font-size: 1.75em;
 
       margin-bottom: 0;
-
+      overflow: hidden;
       text-overflow: ellipsis;
+      overflow-wrap: break-word;
+      hyphens: manual;
+
+      width: 100%;
+      height: 30vh;
     }
   }
 }
@@ -245,7 +254,7 @@ html {
   top: 15vh;
 
   color: #ffffff;
-  font-size: 4em;
+  font-size: 8vw;
   font-family: "Open Sans", sans-serif;
 
   max-height: 85vh;
@@ -299,6 +308,11 @@ html {
   .big-error {
     animation: glitch-skew 1s infinite linear alternate-reverse;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     &::before {
       @include GlitchCopy;
       left: 2px;
@@ -317,10 +331,6 @@ html {
   }
 
   .Error404Text {
-    position: relative;
-    top: -25vh;
-
-    font-size: 2em;
     color: #ff3333;
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Button from "./component/Button";
 
 export default class HomePage extends Component {
   render() {
@@ -16,6 +17,7 @@ export default class HomePage extends Component {
             similique?
           </p>
           <div className="hover-in"></div>
+          <Button>LEARN MORE</Button>
         </article>
         <article className="card">
           <h1 className="title">
@@ -29,6 +31,7 @@ export default class HomePage extends Component {
             similique?
           </p>
           <div className="hover-in"></div>
+          <Button>Learn More</Button>
         </article>
         <article className="card">
           <h1 className="title">
@@ -42,6 +45,7 @@ export default class HomePage extends Component {
             similique?
           </p>
           <div className="hover-in"></div>
+          <Button>Learn More</Button>
         </article>
       </div>
     );

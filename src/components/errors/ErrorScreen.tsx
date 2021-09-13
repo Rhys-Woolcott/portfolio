@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Button from "../component/Button";
 
 interface ErrorComponent {
   match: {
@@ -21,10 +22,12 @@ export default class Error404 extends Component<ErrorComponent> {
           overflowY: "hidden",
         }}
       >
-        <h1 className="big-error" data-text="ERROR">
+        <h1
+          className="big-error"
+          data-text={`ERROR ${this.props.match.params.type}`}
+        >
           ERROR
-        </h1>
-        <h1>
+          <br />
           <span className="Error404Text">{this.props.match.params.type}</span>
         </h1>
       </div>
