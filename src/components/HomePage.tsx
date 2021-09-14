@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import GridTab from "./component/GridTab";
 
 export default class HomePage extends Component {

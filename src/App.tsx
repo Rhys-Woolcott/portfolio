@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import {
  BrowserRouter as Router,
  Switch,
@@ -8,8 +8,8 @@ import {
 
 import './style/global.scss';
 
-const HomePage = React.lazy(() => import('./components/HomePage'));
-const ErrorScreen = React.lazy(() => import('./components/errors/ErrorScreen'));
+const HomePage = lazy(() => import('./components/HomePage'));
+const ErrorScreen = lazy(() => import('./components/errors/ErrorScreen'));
 
 function App(): unknown {
  const [activeLink, setActiveLink] = useState(`${window.location.pathname}`);

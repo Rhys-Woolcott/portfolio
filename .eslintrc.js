@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+// eslint-disable-next-line no-undef
 module.exports = {
  env: {
   browser: true,
@@ -19,11 +21,17 @@ module.exports = {
  plugins: ['react', '@typescript-eslint'],
  rules: {
   indent: ['error', 1],
-  'linebreak-style': ['error', 'unix'],
+  'linebreak-style': ['error', 'windows'],
   quotes: ['error', 'single'],
   semi: ['error', 'always'],
   'no-use-before-define': 'off',
   '@typescript-eslint/no-use-before-define': ['error'],
   'max-len': ['warn', { code: 80 }],
+  'react/react-in-jsx-scope': 'off',
  },
+ settings: {
+  'react': {
+   'version': 'detect'
+  }
+ }
 };
