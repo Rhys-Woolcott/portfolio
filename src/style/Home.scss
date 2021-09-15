@@ -1,0 +1,30 @@
+.headerTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+    font-size: 5vw;
+}
+
+.headerSubTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.homeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 88vh;
+
+    position: relative;
+    top: 12vh;
+
+    padding-left: 50px;
+    box-sizing: border-box;
+}

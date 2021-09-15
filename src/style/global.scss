@@ -19,6 +19,7 @@ html {
 .nav-primary {
   width: 100vw;
   height: $nav-height;
+  max-height: 100px;
   background: #101010;
   color: #ff3333;
 

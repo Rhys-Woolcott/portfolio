@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, ReactElement, Suspense, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,11 +7,14 @@ import {
 } from 'react-router-dom';
 
 import './style/global.scss';
+import { motion } from 'framer-motion';
 
-const HomePage = lazy(() => import('./components/HomePage'));
+const ProjectsPage = lazy(() => import('./components/ProjectsPage'));
 const ErrorScreen = lazy(() => import('./components/errors/ErrorScreen'));
+const HomePage = lazy(() => import('./components/HomePage'));
+import Button from './components/component/Button';
 
-function App(): unknown {
+function App(): ReactElement {
   const [activeLink, setActiveLink] = useState(`${window.location.pathname}`);
   const [burgerActive, setBurgerActive] = useState(false);
 
@@ -59,7 +62,12 @@ function App(): unknown {
             PROJECTS
             <div />
           </a>
-          <button className="contact-button">Contact</button>
+
+          <Button onClick={() => {
+            location.href = '/about';
+          }}>
+            CONTACT
+          </Button>
 
           <div
             className="nav-burger-container"
@@ -79,6 +87,7 @@ function App(): unknown {
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/projects" component={ProjectsPage} />
 
             {/* ! Handle 404 errors ! */}
             <Route exact path="/error/:type" component={ErrorScreen} />
