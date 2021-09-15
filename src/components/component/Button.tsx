@@ -3,6 +3,7 @@ import '../../style/Button.scss';
 
 interface ButtonInterface {
 	onClick: MouseEventHandler;
+  children?: string;
 }
 
 export default class Button extends Component<ButtonInterface> {
