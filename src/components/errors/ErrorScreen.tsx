@@ -30,6 +30,7 @@ export default class Error404 extends Component<ErrorComponent> {
             <span className='Error404Text'>{this.props.match.params.type}</span>
           </h1>
         </div>
+        <p>If this error was unexpected, contact me at rhys@galactix.xyz</p>
       </>
     );
   }
