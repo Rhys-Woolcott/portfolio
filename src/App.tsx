@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import './style/global.scss';
-import { motion } from 'framer-motion';
 
 const ProjectsPage = lazy(() => import('./components/ProjectsPage'));
 const ErrorScreen = lazy(() => import('./components/errors/ErrorScreen'));
